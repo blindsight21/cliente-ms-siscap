@@ -8,7 +8,9 @@ package pe.gob.mimp.siscap.ws.gobierno.cliente;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;
+import pe.gob.mimp.util.Constantes;
 import pe.gob.mimp.util.FormatoFechaConstante;
+import pe.gob.mimp.util.Util;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -18,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class GobiernoServiceGenerator {
 
-    private static final String BASE_GOBIERNO_URL = "http://192.168.0.7:7165/";
+    private static final String BASE_GOBIERNO_URL = Util.construirURI(Constantes.IP_SERVIDOR, Constantes.PuertoMicroservicios.MS_GOBIERNO);
 
     private static final Gson GSON_FORMATO_FECHA_yyyyMMddTHHmmssSSSXXX = new GsonBuilder().setDateFormat(FormatoFechaConstante.yyyyMMddTHHmmssSSSXXX).create();
 

@@ -5,7 +5,6 @@
  */
 package pe.gob.mimp.siscap.ws.tipogobierno.cliente;
 
-import pe.gob.mimp.siscap.ws.tipoobjetivo.cliente.*;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;

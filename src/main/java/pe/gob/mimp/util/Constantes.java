@@ -15,11 +15,11 @@ public class Constantes {
 
     public static class Ambiente {
 
-        private static String ENTORNO_DESARROLLO = "192.168.56.1";
+        private static String ENTORNO_DESARROLLO = "192.168.0.51";
 
-        private static final String ENTORNO_CALIDAD = "192.168.56.2";
+        private static final String ENTORNO_CALIDAD = "192.168.0.52";
 
-        private static final String ENTORNO_PRODUCCION = "192.168.56.3";
+        private static final String ENTORNO_PRODUCCION = "192.168.0.53";
     }
 
     public static class PuertoMicroservicios {
