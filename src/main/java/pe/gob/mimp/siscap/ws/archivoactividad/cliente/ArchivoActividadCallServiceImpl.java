@@ -32,11 +32,13 @@ public class ArchivoActividadCallServiceImpl implements ArchivoActividadCallServ
 
         ArchivoActividadBean archivoActividadBean = ArchivoActividadCast.castArchivoActividadToArchivoActividadBean(archivoActividad);
 
-        Call<ResponseData<Object>> callSync = archivoActividadCall.crearArchivoActividad(archivoActividadBean);
+        Call<ResponseData<ArchivoActividadBean>> callSync = archivoActividadCall.crearArchivoActividad(archivoActividadBean);
 
         try {
-            callSync.execute();
-
+            Response<ResponseData<ArchivoActividadBean>> response = callSync.execute();
+            
+            ArchivoActividad archivoActividadNuevo = ArchivoActividadCast.castArchivoActividadBeanToArchivoActividad(response.body().getResultado());
+            archivoActividad.setNidArchivoActividad(archivoActividadNuevo.getNidArchivoActividad());
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }
@@ -47,11 +49,13 @@ public class ArchivoActividadCallServiceImpl implements ArchivoActividadCallServ
 
         ArchivoActividadBean archivoActividadBean = ArchivoActividadCast.castArchivoActividadToArchivoActividadBean(archivoActividad);
 
-        Call<ResponseData<Object>> callSync = archivoActividadCall.editarArchivoActividad(archivoActividadBean);
+        Call<ResponseData<ArchivoActividadBean>> callSync = archivoActividadCall.editarArchivoActividad(archivoActividadBean);
 
         try {
-            callSync.execute();
-
+            Response<ResponseData<ArchivoActividadBean>> response = callSync.execute();
+            
+            ArchivoActividad archivoActividadEditado = ArchivoActividadCast.castArchivoActividadBeanToArchivoActividad(response.body().getResultado());
+            archivoActividad.setNidArchivoActividad(archivoActividadEditado.getNidArchivoActividad());
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }

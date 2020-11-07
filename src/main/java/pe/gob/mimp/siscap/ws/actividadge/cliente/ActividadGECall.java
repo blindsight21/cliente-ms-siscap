@@ -20,10 +20,10 @@ import retrofit2.http.POST;
 public interface ActividadGECall {
 
     @POST("/actividadge/crearActividadGE")
-    Call<ResponseData<Object>> crearActividadGE(@Body ActividadGobEActGobBean actividadGEBean);
+    Call<ResponseData<ActividadGobEActGobBean>> crearActividadGE(@Body ActividadGobEActGobBean actividadGEBean);
 
     @POST("/actividadge/editarActividadGE")
-    Call<ResponseData<Object>> editarActividadGE(@Body ActividadGobEActGobBean actividadGEBean);
+    Call<ResponseData<ActividadGobEActGobBean>> editarActividadGE(@Body ActividadGobEActGobBean actividadGEBean);
 
 //    @GET("/actividadge/obtenerActividadGEPorId/{nidActividadGE}")
 //    Call<ResponseData<String>> obtenerActividadGEPorId(@Path("nidActividadGE") BigDecimal nidActividadGE);

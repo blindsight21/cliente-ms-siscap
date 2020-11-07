@@ -7,6 +7,7 @@ package pe.gob.mimp.siscap.ws.personasiscap.cliente;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,11 +34,13 @@ public class PersonaSiscapCallServiceImpl implements PersonaSiscapCallService {
 
         PersonaSiscapBean personaSiscapBean = PersonaSiscapCast.castPersonaSiscapToPersonaSiscapBean(personaSiscap);
 
-        Call<ResponseData<Object>> callSync = personaSiscapCall.crearPersonaSiscap(personaSiscapBean);
+        Call<ResponseData<PersonaSiscapBean>> callSync = personaSiscapCall.crearPersonaSiscap(personaSiscapBean);
 
         try {
-            callSync.execute();
-
+            Response<ResponseData<PersonaSiscapBean>> response = callSync.execute();
+            PersonaSiscap actividadGobEActGobNuevo = PersonaSiscapCast.castPersonaSiscapBeanToPersonaSiscap(response.body().getResultado());
+            personaSiscap.setNidPersonaSiscap(actividadGobEActGobNuevo.getNidPersonaSiscap());
+            
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }
@@ -48,10 +51,12 @@ public class PersonaSiscapCallServiceImpl implements PersonaSiscapCallService {
 
         PersonaSiscapBean personaSiscapBean = PersonaSiscapCast.castPersonaSiscapToPersonaSiscapBean(personaSiscap);
 
-        Call<ResponseData<Object>> callSync = personaSiscapCall.editarPersonaSiscap(personaSiscapBean);
+        Call<ResponseData<PersonaSiscapBean>> callSync = personaSiscapCall.editarPersonaSiscap(personaSiscapBean);
 
         try {
-            callSync.execute();
+            Response<ResponseData<PersonaSiscapBean>> response = callSync.execute();
+            PersonaSiscap actividadGobEActGobNuevo = PersonaSiscapCast.castPersonaSiscapBeanToPersonaSiscap(response.body().getResultado());
+            personaSiscap.setNidPersonaSiscap(actividadGobEActGobNuevo.getNidPersonaSiscap());
 
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
@@ -111,7 +116,7 @@ public class PersonaSiscapCallServiceImpl implements PersonaSiscapCallService {
             List<PersonaSiscapBean> loadPersonaSiscapBeanList = response.body().getResultado();
 
             if (Util.esListaVacia(loadPersonaSiscapBeanList)) {
-                return null;
+                return new ArrayList<>();
             }
 
             return loadPersonaSiscapBeanList.stream().map(personaSiscapBean -> {

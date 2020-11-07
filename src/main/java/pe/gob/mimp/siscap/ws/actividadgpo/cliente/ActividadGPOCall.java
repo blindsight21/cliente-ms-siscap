@@ -20,10 +20,10 @@ import retrofit2.http.POST;
 public interface ActividadGPOCall {
 
     @POST("/actividadgpo/crearActividadGPO")
-    Call<ResponseData<Object>> crearActividadGPO(@Body ActividadGobPubliObjeBean actividadGobPubliObjeBean);
+    Call<ResponseData<ActividadGobPubliObjeBean>> crearActividadGPO(@Body ActividadGobPubliObjeBean actividadGobPubliObjeBean);
 
     @POST("/actividadgpo/editarActividadGPO")
-    Call<ResponseData<Object>> editarActividadGPO(@Body ActividadGobPubliObjeBean actividadGobPubliObjeBean);
+    Call<ResponseData<ActividadGobPubliObjeBean>> editarActividadGPO(@Body ActividadGobPubliObjeBean actividadGobPubliObjeBean);
 
 //    @GET("/actividadgpo/obtenerActividadGPOPorId/{nidActividadGPO}")
 //    Call<ResponseData<String>> obtenerActividadGPOPorId(@Path("nidActividadGPO") BigDecimal nidActividadGPO);

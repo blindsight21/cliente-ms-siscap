@@ -32,11 +32,13 @@ public class ActividadGobCallServiceImpl implements ActividadGobCallService {
 
         ActividadGobBean actividadGobBean = ActividadGobCast.castActividadGobToActividadGobBean(actividadGob);
 
-        Call<ResponseData<Object>> callSync = actividadGobCall.crearActividadGob(actividadGobBean);
+        Call<ResponseData<ActividadGobBean>> callSync = actividadGobCall.crearActividadGob(actividadGobBean);
 
         try {
-            callSync.execute();
+            Response<ResponseData<ActividadGobBean>> execute = callSync.execute();
 
+            ActividadGob actividadGobNuevo = ActividadGobCast.castActividadGobBeanToActividadGob(execute.body().getResultado());
+            actividadGob.setNidActividadGob(actividadGobNuevo.getNidActividadGob());
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }
@@ -47,11 +49,13 @@ public class ActividadGobCallServiceImpl implements ActividadGobCallService {
 
         ActividadGobBean actividadGobBean = ActividadGobCast.castActividadGobToActividadGobBean(actividadGob);
 
-        Call<ResponseData<Object>> callSync = actividadGobCall.editarActividadGob(actividadGobBean);
+        Call<ResponseData<ActividadGobBean>> callSync = actividadGobCall.editarActividadGob(actividadGobBean);
 
         try {
-            callSync.execute();
+            Response<ResponseData<ActividadGobBean>> execute = callSync.execute();
 
+            ActividadGob actividadGobNuevo = ActividadGobCast.castActividadGobBeanToActividadGob(execute.body().getResultado());
+            actividadGob.setNidActividadGob(actividadGobNuevo.getNidActividadGob());
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }

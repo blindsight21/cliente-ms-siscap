@@ -5,7 +5,6 @@
  */
 package pe.gob.mimp.siscap.ws.archivoactividad.cliente;
 
-import pe.gob.mimp.siscap.ws.archivoactividad.cliente.*;
 import java.util.List;
 import pe.gob.mimp.bean.FindByParamBean;
 import pe.gob.mimp.bean.ResponseData;
@@ -21,10 +20,10 @@ import retrofit2.http.POST;
 public interface ArchivoActividadCall {
 
     @POST("/archivoactividad/crearArchivoActividad")
-    Call<ResponseData<Object>> crearArchivoActividad(@Body ArchivoActividadBean archivoActividadBean);
+    Call<ResponseData<ArchivoActividadBean>> crearArchivoActividad(@Body ArchivoActividadBean archivoActividadBean);
 
     @POST("/archivoactividad/editarArchivoActividad")
-    Call<ResponseData<Object>> editarArchivoActividad(@Body ArchivoActividadBean archivoActividadBean);
+    Call<ResponseData<ArchivoActividadBean>> editarArchivoActividad(@Body ArchivoActividadBean archivoActividadBean);
 
     @POST("/archivoactividad/loadArchivoActividadList")
     Call<ResponseData<List<ArchivoActividadBean>>> loadArchivoActividadList(@Body FindByParamBean findByParamBean);

@@ -24,7 +24,7 @@ import retrofit2.http.Path;
 public interface DistritoCall {
 
     @POST("/general/distrito/obtenerDistritos")
-    Call<ResponseData<List<DistritoBean>>> obtenerDistritos(ProvinciaBean provinciaBean);
+    Call<ResponseData<List<DistritoBean>>> obtenerDistritos(@Body ProvinciaBean provinciaBean);
     
     @GET("/general/distrito/obtenerActivos")
     Call<ResponseData<List<DistritoBean>>> obtenerActivos();

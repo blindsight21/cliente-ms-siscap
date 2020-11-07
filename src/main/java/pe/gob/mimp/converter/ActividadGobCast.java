@@ -109,7 +109,7 @@ public class ActividadGobCast {
 
         actividadGobierno.setNidTipoFuncion(actividadGobiernoBean.getNidTipoFuncion());
         actividadGobierno.setNidTipoGobierno(actividadGobiernoBean.getNidTipoGobierno());
-        actividadGobierno.setNidEstadoActividad(actividadGobierno.getNidEstadoActividad());
+        actividadGobierno.setNidEstadoActividad(actividadGobiernoBean.getNidEstadoActividad());
 
         return actividadGobierno;
     }

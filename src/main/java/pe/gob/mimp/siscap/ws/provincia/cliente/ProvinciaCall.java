@@ -24,7 +24,7 @@ import retrofit2.http.Path;
 public interface ProvinciaCall {
 
     @POST("/general/provincia/obtenerProvincias")
-    Call<ResponseData<List<ProvinciaBean>>> obtenerProvincias(DepartamentoBean departamentoBean);
+    Call<ResponseData<List<ProvinciaBean>>> obtenerProvincias(@Body DepartamentoBean departamentoBean);
     
     @GET("/general/provincia/obtenerActivos")
     Call<ResponseData<List<ProvinciaBean>>> obtenerActivos();

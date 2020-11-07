@@ -28,44 +28,44 @@ public enum EnumFuncionalidad {
     REPORTE("266", "265", "REPORTE", 120, 16),
     CALENDARIO("739", "265", "CALENDARIO", 120, 16);
 
-    private String nid_funcionalidad;
-    private String nid_funcionalidad_padre;
-    private String txt_funcionalidad;
+    private String nidFuncionalidad;
+    private String nidFuncionalidad_padre;
+    private String txtFuncionalidad;
     private int tiempoMedioParaLaFalla;
     private int tareasPorFuncionalidad;
 
-    private EnumFuncionalidad(String nid_funcionalidad, String nid_funcionalidad_padre, String txt_funcionalidad, int tiempoMedioParaLaFalla, int tareasPorFuncionalidad) {
+    private EnumFuncionalidad(String nidFuncionalidad, String nidFuncionalidad_padre, String txtFuncionalidad, int tiempoMedioParaLaFalla, int tareasPorFuncionalidad) {
 
-        this.nid_funcionalidad = nid_funcionalidad;
-        this.nid_funcionalidad_padre = nid_funcionalidad_padre;
-        this.txt_funcionalidad = txt_funcionalidad;
+        this.nidFuncionalidad = nidFuncionalidad;
+        this.nidFuncionalidad_padre = nidFuncionalidad_padre;
+        this.txtFuncionalidad = txtFuncionalidad;
         this.tiempoMedioParaLaFalla = tiempoMedioParaLaFalla;
         this.tareasPorFuncionalidad = tareasPorFuncionalidad;
 
     }
 
-    public String getNid_funcionalidad() {
-        return nid_funcionalidad;
+    public String getNidFuncionalidad() {
+        return nidFuncionalidad;
     }
 
-    public void setNid_funcionalidad(String nid_funcionalidad) {
-        this.nid_funcionalidad = nid_funcionalidad;
+    public void setNidFuncionalidad(String nidFuncionalidad) {
+        this.nidFuncionalidad = nidFuncionalidad;
     }
 
-    public String getNid_funcionalidad_padre() {
-        return nid_funcionalidad_padre;
+    public String getNidFuncionalidad_padre() {
+        return nidFuncionalidad_padre;
     }
 
-    public void setNid_funcionalidad_padre(String nid_funcionalidad_padre) {
-        this.nid_funcionalidad_padre = nid_funcionalidad_padre;
+    public void setNidFuncionalidad_padre(String nidFuncionalidad_padre) {
+        this.nidFuncionalidad_padre = nidFuncionalidad_padre;
     }
 
-    public String getTxt_funcionalidad() {
-        return txt_funcionalidad;
+    public String getTxtFuncionalidad() {
+        return txtFuncionalidad;
     }
 
-    public void setTxt_funcionalidad(String txt_funcionalidad) {
-        this.txt_funcionalidad = txt_funcionalidad;
+    public void setTxtFuncionalidad(String txtFuncionalidad) {
+        this.txtFuncionalidad = txtFuncionalidad;
     }
 
     public int getTiempoMedioParaLaFalla() {
@@ -84,14 +84,22 @@ public enum EnumFuncionalidad {
         this.tareasPorFuncionalidad = tareasPorFuncionalidad;
     }
 
-    public BigDecimal getNid_funcionalidadBigDecimal() {
-        return new BigDecimal(this.nid_funcionalidad);
+    public BigDecimal getNidFuncionalidadBigDecimal() {
+        return new BigDecimal(this.nidFuncionalidad);
+    }
+
+    public BigInteger getNidFuncionalidadBigInteger() {
+        return BigInteger.valueOf(Long.valueOf(this.nidFuncionalidad));
     }
 
     public BigInteger getTiempoMedioParaLaFallaBigInteger() {
         return BigInteger.valueOf(tiempoMedioParaLaFalla);
     }
-    
+
+    public BigDecimal getTiempoMedioParaLaFallaBigDecimal() {
+        return new BigDecimal(tiempoMedioParaLaFalla);
+    }
+
     public BigInteger getTareasPorFuncionalidadBigInteger() {
         return BigInteger.valueOf(tareasPorFuncionalidad);
     }

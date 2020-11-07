@@ -6,7 +6,6 @@
 package pe.gob.mimp.siscap.ws.actividadge.cliente;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,11 +31,13 @@ public class ActividadGECallServiceImpl implements ActividadGECallService {
 
         ActividadGobEActGobBean actividadGobEActGobBean = ActividadGobEActGobCast.castActividadGobEActGobToActividadGobEActGobBean(actividadGobEActGob);
 
-        Call<ResponseData<Object>> callSync = actividadGobEActGobCall.crearActividadGE(actividadGobEActGobBean);
+        Call<ResponseData<ActividadGobEActGobBean>> callSync = actividadGobEActGobCall.crearActividadGE(actividadGobEActGobBean);
 
         try {
-            callSync.execute();
+            Response<ResponseData<ActividadGobEActGobBean>> execute = callSync.execute();
 
+            ActividadGobEActGob actividadGobEActGobNuevo = ActividadGobEActGobCast.castActividadGobEActGobBeanToActividadGobEActGob(execute.body().getResultado());
+            actividadGobEActGob.setNidActividadGobEActGob(actividadGobEActGobNuevo.getNidActividadGobEActGob());
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }
@@ -47,11 +48,14 @@ public class ActividadGECallServiceImpl implements ActividadGECallService {
 
         ActividadGobEActGobBean actividadGobEActGobBean = ActividadGobEActGobCast.castActividadGobEActGobToActividadGobEActGobBean(actividadGobEActGob);
 
-        Call<ResponseData<Object>> callSync = actividadGobEActGobCall.editarActividadGE(actividadGobEActGobBean);
+        Call<ResponseData<ActividadGobEActGobBean>> callSync = actividadGobEActGobCall.editarActividadGE(actividadGobEActGobBean);
 
         try {
-            callSync.execute();
+            Response<ResponseData<ActividadGobEActGobBean>> execute = callSync.execute();
 
+            ActividadGobEActGob actividadGobEActGobNuevo = ActividadGobEActGobCast.castActividadGobEActGobBeanToActividadGobEActGob(execute.body().getResultado());
+            actividadGobEActGob.setNidActividadGobEActGob(actividadGobEActGobNuevo.getNidActividadGobEActGob());
+        
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }

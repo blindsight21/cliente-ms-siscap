@@ -24,10 +24,10 @@ import retrofit2.http.Path;
 public interface PersonaSiscapCall {
 
     @POST("/personasiscap/crearPersonaSiscap")
-    Call<ResponseData<Object>> crearPersonaSiscap(@Body PersonaSiscapBean personaSiscapBean);
+    Call<ResponseData<PersonaSiscapBean>> crearPersonaSiscap(@Body PersonaSiscapBean personaSiscapBean);
 
     @POST("/personasiscap/editarPersonaSiscap")
-    Call<ResponseData<Object>> editarPersonaSiscap(@Body PersonaSiscapBean personaSiscapBean);
+    Call<ResponseData<PersonaSiscapBean>> editarPersonaSiscap(@Body PersonaSiscapBean personaSiscapBean);
 
     @POST("/personasiscap/loadPersonaSiscapList")
     Call<ResponseData<List<PersonaSiscapBean>>> loadPersonaSiscapList(@Body FindByParamBean findByParamBean);

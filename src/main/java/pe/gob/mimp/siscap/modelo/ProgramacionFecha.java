@@ -30,7 +30,10 @@ import javax.validation.constraints.NotNull;
 
 public class ProgramacionFecha implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    
+    private static ProgramacionFecha instance;
+    
+// @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @SequenceGenerator(name = "SQ_PROGRAMACION_FECHA", sequenceName = "SQ_PROGRAMACION_FECHA", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PROGRAMACION_FECHA")
@@ -63,6 +66,28 @@ public class ProgramacionFecha implements Serializable {
     private Date fecEdicion;
 
     public ProgramacionFecha() {
+    }
+    
+    public static ProgramacionFecha getInstance(){
+        synchronized (ProgramacionFecha.class) {
+            if (instance == null) {
+                instance = new ProgramacionFecha();
+            }
+        }
+        return instance;
+    }
+    
+    public void limpiarValores(){
+        setNidProgramacionFecha(null);
+        setTxtAnio(null);
+        setNumTrimestre(null);
+        setFecInicio(null);
+        setFecFin(null);
+        setNidTipoActividad(null);
+        setFlgActivo(null);
+        setNidUsuario(null);
+        setTxtPc(null);
+        setTxtIp(null);
     }
 
     public ProgramacionFecha(BigDecimal nidProgramacionFecha) {

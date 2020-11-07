@@ -20,10 +20,10 @@ import retrofit2.http.POST;
 public interface ActividadGPPCall {
 
     @POST("/actividadgpp/crearActividadGPP")
-    Call<ResponseData<Object>> crearActividadGPP(@Body ActividadGobPubliProcBean actividadGobPubliProcBean);
+    Call<ResponseData<ActividadGobPubliProcBean>> crearActividadGPP(@Body ActividadGobPubliProcBean actividadGobPubliProcBean);
 
     @POST("/actividadgpp/editarActividadGPP")
-    Call<ResponseData<Object>> editarActividadGPP(@Body ActividadGobPubliProcBean actividadGobPubliProcBean);
+    Call<ResponseData<ActividadGobPubliProcBean>> editarActividadGPP(@Body ActividadGobPubliProcBean actividadGobPubliProcBean);
 
     @POST("/actividadgpp/loadActividadGPPList")
     Call<ResponseData<List<ActividadGobPubliProcBean>>> loadActividadGPPList(@Body FindByParamBean findByParamBean);

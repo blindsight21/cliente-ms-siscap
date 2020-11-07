@@ -5,7 +5,6 @@
  */
 package pe.gob.mimp.bean;
 
-import pe.gob.mimp.seguridad.bean.entidades.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
@@ -24,9 +23,15 @@ public class DisponibilidadBean implements Serializable {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private BigDecimal nidDisponibilidad;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private BigInteger nidFuncionalidad;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = FormatoFechaConstante.yyyyMMddTHHmmssSSSXXX, timezone = FormatoFechaConstante.ZONA_HORARIA)
+    private Date fecDisponible;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private BigDecimal flgDisponibilidad;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = FormatoFechaConstante.yyyyMMddTHHmmssSSSXXX, timezone = FormatoFechaConstante.ZONA_HORARIA)
+    private Date fecNoDisponible;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private BigInteger numTiempoMedio;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private BigInteger nidFuncionalidad;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private BigInteger flgActivo;
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -55,12 +60,28 @@ public class DisponibilidadBean implements Serializable {
         this.nidFuncionalidad = nidFuncionalidad;
     }
 
-    public BigDecimal getFlgDisponibilidad() {
-        return flgDisponibilidad;
+    public Date getFecDisponible() {
+        return fecDisponible;
     }
 
-    public void setFlgDisponibilidad(BigDecimal flgDisponibilidad) {
-        this.flgDisponibilidad = flgDisponibilidad;
+    public void setFecDisponible(Date fecDisponible) {
+        this.fecDisponible = fecDisponible;
+    }
+
+    public Date getFecNoDisponible() {
+        return fecNoDisponible;
+    }
+
+    public void setFecNoDisponible(Date fecNoDisponible) {
+        this.fecNoDisponible = fecNoDisponible;
+    }
+
+    public BigInteger getNumTiempoMedio() {
+        return numTiempoMedio;
+    }
+
+    public void setNumTiempoMedio(BigInteger numTiempoMedio) {
+        this.numTiempoMedio = numTiempoMedio;
     }
 
     public BigInteger getFlgActivo() {

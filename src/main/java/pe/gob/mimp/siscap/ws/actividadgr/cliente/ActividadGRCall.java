@@ -20,10 +20,10 @@ import retrofit2.http.POST;
 public interface ActividadGRCall {
 
     @POST("/actividadgr/crearActividadGR")
-    Call<ResponseData<Object>> crearActividadGR(@Body ActividadGobResultadoBean actividadGobResultadoBean);
+    Call<ResponseData<ActividadGobResultadoBean>> crearActividadGR(@Body ActividadGobResultadoBean actividadGobResultadoBean);
 
     @POST("/actividadgr/editarActividadGR")
-    Call<ResponseData<Object>> editarActividadGR(@Body ActividadGobResultadoBean actividadGobResultadoBean);
+    Call<ResponseData<ActividadGobResultadoBean>> editarActividadGR(@Body ActividadGobResultadoBean actividadGobResultadoBean);
 
     @POST("/actividadgr/loadActividadGRList")
     Call<ResponseData<List<ActividadGobResultadoBean>>> loadActividadGRList(@Body FindByParamBean findByParamBean);

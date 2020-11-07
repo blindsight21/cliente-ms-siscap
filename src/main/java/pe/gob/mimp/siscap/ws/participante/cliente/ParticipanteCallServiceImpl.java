@@ -6,6 +6,7 @@
 package pe.gob.mimp.siscap.ws.participante.cliente;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -81,7 +82,7 @@ public class ParticipanteCallServiceImpl implements ParticipanteCallService {
             List<ParticipanteBean> loadParticipanteBeanList = response.body().getResultado();
 
             if (Util.esListaVacia(loadParticipanteBeanList)) {
-                return null;
+                return new ArrayList<>();
             }
 
             return loadParticipanteBeanList.stream().map(participanteBean -> {

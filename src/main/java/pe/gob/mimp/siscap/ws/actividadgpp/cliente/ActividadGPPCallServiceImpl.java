@@ -6,6 +6,7 @@
 package pe.gob.mimp.siscap.ws.actividadgpp.cliente;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,11 +32,13 @@ public class ActividadGPPCallServiceImpl implements ActividadGPPCallService {
 
         ActividadGobPubliProcBean actividadGobPubliProcGobBean = ActividadGobPubliProcCast.castActividadGobPubliProcToActividadGobPubliProcBean(actividadGobPubliProcGob);
 
-        Call<ResponseData<Object>> callSync = actividadGobPubliProcCall.crearActividadGPP(actividadGobPubliProcGobBean);
+        Call<ResponseData<ActividadGobPubliProcBean>> callSync = actividadGobPubliProcCall.crearActividadGPP(actividadGobPubliProcGobBean);
 
         try {
-            callSync.execute();
+            Response<ResponseData<ActividadGobPubliProcBean>> execute = callSync.execute();
 
+            ActividadGobPubliProc actividadGobPubliProcGobNuevo = ActividadGobPubliProcCast.castActividadGobPubliProcBeanToActividadGobPubliProc(execute.body().getResultado());
+            actividadGobPubliProcGob.setNidActividadGobProcGob(actividadGobPubliProcGobNuevo.getNidActividadGobProcGob());
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }
@@ -46,11 +49,13 @@ public class ActividadGPPCallServiceImpl implements ActividadGPPCallService {
 
         ActividadGobPubliProcBean actividadGobPubliProcGobBean = ActividadGobPubliProcCast.castActividadGobPubliProcToActividadGobPubliProcBean(actividadGobPubliProcGob);
 
-        Call<ResponseData<Object>> callSync = actividadGobPubliProcCall.editarActividadGPP(actividadGobPubliProcGobBean);
+        Call<ResponseData<ActividadGobPubliProcBean>> callSync = actividadGobPubliProcCall.editarActividadGPP(actividadGobPubliProcGobBean);
 
         try {
-            callSync.execute();
+            Response<ResponseData<ActividadGobPubliProcBean>> execute = callSync.execute();
 
+            ActividadGobPubliProc actividadGobPubliProcGobNuevo = ActividadGobPubliProcCast.castActividadGobPubliProcBeanToActividadGobPubliProc(execute.body().getResultado());
+            actividadGobPubliProcGob.setNidActividadGobProcGob(actividadGobPubliProcGobNuevo.getNidActividadGobProcGob());
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }

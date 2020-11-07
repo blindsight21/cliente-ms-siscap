@@ -29,6 +29,7 @@ public class ActividadGobEActGobCast {
         actividadGobEActGobBean.setNidUsuario(actividadGobEActGob.getNidUsuario());
         actividadGobEActGobBean.setTxtPc(actividadGobEActGob.getTxtPc());
         actividadGobEActGobBean.setTxtIp(actividadGobEActGob.getTxtIp());
+        actividadGobEActGobBean.setFecCreacion(actividadGobEActGob.getFecCreacion());
         actividadGobEActGobBean.setFecEdicion(actividadGobEActGob.getFecEdicion());
         actividadGobEActGobBean.setEstadoActividadGobBean(EstadoActividadGobCast.castEstadoActividadGobToEstadoActividadGobBean(actividadGobEActGob.getNidEstadoActividadGob()));
         actividadGobEActGobBean.setActividadGobBean(ActividadGobCast.castActividadGobToActividadGobBean(actividadGobEActGob.getNidActividadGob()));
@@ -44,13 +45,14 @@ public class ActividadGobEActGobCast {
 
         ActividadGobEActGob actividadGobEActGob = new ActividadGobEActGob();
 
-        actividadGobEActGob.setNidActividadGobEActGob(actividadGobEActGob.getNidActividadGobEActGob());
-        actividadGobEActGob.setFecCreacion(actividadGobEActGob.getFecCreacion());
-        actividadGobEActGob.setFlgActivo(actividadGobEActGob.getFlgActivo());
-        actividadGobEActGob.setNidUsuario(actividadGobEActGob.getNidUsuario());
-        actividadGobEActGob.setTxtPc(actividadGobEActGob.getTxtPc());
-        actividadGobEActGob.setTxtIp(actividadGobEActGob.getTxtIp());
-        actividadGobEActGob.setFecEdicion(actividadGobEActGob.getFecEdicion());
+        actividadGobEActGob.setNidActividadGobEActGob(actividadGobEActBean.getNidActividadGobEActGob());
+        actividadGobEActGob.setFecCreacion(actividadGobEActBean.getFecCreacion());
+        actividadGobEActGob.setFlgActivo(actividadGobEActBean.getFlgActivo());
+        actividadGobEActGob.setNidUsuario(actividadGobEActBean.getNidUsuario());
+        actividadGobEActGob.setTxtPc(actividadGobEActBean.getTxtPc());
+        actividadGobEActGob.setTxtIp(actividadGobEActBean.getTxtIp());
+        actividadGobEActGob.setFecCreacion(actividadGobEActBean.getFecCreacion());
+        actividadGobEActGob.setFecEdicion(actividadGobEActBean.getFecEdicion());
         actividadGobEActGob.setNidEstadoActividadGob(EstadoActividadGobCast.castEstadoActividadGobBeanToEstadoActividadGob(actividadGobEActBean.getEstadoActividadGobBean()));
         actividadGobEActGob.setNidActividadGob(ActividadGobCast.castActividadGobBeanToActividadGob(actividadGobEActBean.getActividadGobBean()));
 

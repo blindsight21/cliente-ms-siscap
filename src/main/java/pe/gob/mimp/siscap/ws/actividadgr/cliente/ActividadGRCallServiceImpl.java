@@ -6,6 +6,7 @@
 package pe.gob.mimp.siscap.ws.actividadgr.cliente;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,11 +32,13 @@ public class ActividadGRCallServiceImpl implements ActividadGRCallService {
 
         ActividadGobResultadoBean actividadGobResultadoBean = ActividadGobResultadoCast.castActividadGobResultadoToActividadGobResultadoBean(actividadGobResultado);
 
-        Call<ResponseData<Object>> callSync = actividadGobResultadoCall.crearActividadGR(actividadGobResultadoBean);
+        Call<ResponseData<ActividadGobResultadoBean>> callSync = actividadGobResultadoCall.crearActividadGR(actividadGobResultadoBean);
 
         try {
-            callSync.execute();
+            Response<ResponseData<ActividadGobResultadoBean>> execute = callSync.execute();
 
+            ActividadGobResultado actividadGobResultadoNuevo = ActividadGobResultadoCast.castActividadGobResultadoBeanToActividadGobResultado(execute.body().getResultado());
+            actividadGobResultado.setNidActividadGobResultado(actividadGobResultadoNuevo.getNidActividadGobResultado());
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }
@@ -46,11 +49,13 @@ public class ActividadGRCallServiceImpl implements ActividadGRCallService {
 
         ActividadGobResultadoBean actividadGobResultadoBean = ActividadGobResultadoCast.castActividadGobResultadoToActividadGobResultadoBean(actividadGobResultado);
 
-        Call<ResponseData<Object>> callSync = actividadGobResultadoCall.editarActividadGR(actividadGobResultadoBean);
+        Call<ResponseData<ActividadGobResultadoBean>> callSync = actividadGobResultadoCall.editarActividadGR(actividadGobResultadoBean);
 
         try {
-            callSync.execute();
+            Response<ResponseData<ActividadGobResultadoBean>> execute = callSync.execute();
 
+            ActividadGobResultado actividadGobResultadoNuevo = ActividadGobResultadoCast.castActividadGobResultadoBeanToActividadGobResultado(execute.body().getResultado());
+            actividadGobResultado.setNidActividadGobResultado(actividadGobResultadoNuevo.getNidActividadGobResultado());
         } catch (IOException ex) {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }

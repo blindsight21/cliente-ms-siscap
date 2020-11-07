@@ -25,6 +25,8 @@ public class ProgramacionFechaBean implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
+    private static ProgramacionFechaBean instance;
+    
     @JsonInclude(Include.NON_NULL)
     private BigDecimal nidProgramacionFecha;
     @JsonInclude(Include.NON_NULL)
@@ -51,6 +53,29 @@ public class ProgramacionFechaBean implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = FormatoFechaConstante.yyyyMMddTHHmmssSSSXXX, timezone = FormatoFechaConstante.ZONA_HORARIA)
     private Date fecEdicion;
 
+    public static ProgramacionFechaBean getInstance(){
+        
+        synchronized (ProgramacionFechaBean.class) {
+            if (instance == null) {
+                instance = new ProgramacionFechaBean();
+            }
+        }
+        return instance;
+    }
+    
+    public void limpiarValores(){
+        setNidProgramacionFecha(null);
+        setTxtAnio(null);
+        setNumTrimestre(null);
+        setFecInicio(null);
+        setFecFin(null);
+        setNidTipoActividad(null);
+        setFlgActivo(null);
+        setNidUsuario(null);
+        setTxtPc(null);
+        setTxtIp(null);
+    }
+    
     public BigDecimal getNidProgramacionFecha() {
         return nidProgramacionFecha;
     }

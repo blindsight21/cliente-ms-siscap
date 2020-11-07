@@ -23,10 +23,10 @@ import retrofit2.http.Path;
 public interface ActividadGobCall {
 
     @POST("/actividadgob/crearActividadGob")
-    Call<ResponseData<Object>> crearActividadGob(@Body ActividadGobBean actividadGobBean);
+    Call<ResponseData<ActividadGobBean>> crearActividadGob(@Body ActividadGobBean actividadGobBean);
 
     @POST("/actividadgob/editarActividadGob")
-    Call<ResponseData<Object>> editarActividadGob(@Body ActividadGobBean actividadGobBean);
+    Call<ResponseData<ActividadGobBean>> editarActividadGob(@Body ActividadGobBean actividadGobBean);
 
     @POST("/actividadgob/loadActividadGobList")
     Call<ResponseData<List<ActividadGobBean>>> loadActividadGobList(@Body FindByParamBean findByParamBean);
